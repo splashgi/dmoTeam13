@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Distance Matrix service</title>
+    <script
+  src="https://code.jquery.com/jquery-1.12.4.js"
+  integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="
+  crossorigin="anonymous"></script>
+    <style>
+      #right-panel {
+        font-family: 'Roboto','sans-serif';
+        line-height: 30px;
+        padding-left: 10px;
+      }
+
+      #right-panel select, #right-panel input {
+        font-size: 15px;
+      }
+
+      #right-panel select {
+        width: 100%;
+      }
+
+      #right-panel i {
+        font-size: 12px;
+      }
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 100%;
+        width: 50%;
+      }
+      #right-panel {
+        float: right;
+        width: 48%;
+        padding-left: 2%;
+      }
+      #output {
+        font-size: 11px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="right-panel">
+      <div id="inputs">
+        <h1>Google Distance Matrix</h2>
+          <form action="" method="get">
+      <table><tr><td>  <label>Origin postalcode:</label><br /><input type="text" id="origin_lat" value="119615"/></td></tr>
+          <tr><td><label>Destination postalcode:</label><br><input type="text" id="dest_lat" value="038988"/></td></tr>
+            <tr><td><input type="submit" value="submit" /></td></tr>
+        </table>
+      </form>
+      </div>
+      <div>
+        <strong>Results</strong>
+      </div>
+      <div id="output"></div>
+      <p><a href="https://developers.google.com/maps/documentation/javascript/distancematrix" target="_blank">Google's Distance Matrix</a> service computes travel distance and journey duration between origins and destinations using a given mode of travel.</p>
+      <p>Mode of trave: <strong>DRIVING</strong></p>
+    </div>
+    <div id="map"></div>
+    <script>
+      function initMap() {
+        var bounds = new google.maps.LatLngBounds;
+        var markersArray = [];
+        //origin_lat = $('#origin_lat').val();
+        //console.log($('#origin_lat').val());
+        var origin1 = '038988';
+      //  var origin2 = '119615';
+      //  var destinationA = '038988';
+        //var destinationB = {lat: 1.282613, lng: 103.848669};
+        var destinationB = '069542';
+
+        var destinationIcon = 'https://chart.googleapis.com/chart?' +
+            'chst=d_map_pin_letter&chld=D|FF0000|000000';
+        var originIcon = 'https://chart.googleapis.com/chart?' +
+            'chst=d_map_pin_letter&chld=O|FFFF00|000000';
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat:1.31507, lng: 103.7069313},
+          zoom: 10
+        });
+        var geocoder = new google.maps.Geocoder;
+
+        var service = new google.maps.DistanceMatrixService;
+        service.getDistanceMatrix({
+          origins: [origin1],
+          destinations: [destinationB],
+          travelMode: 'DRIVING',
+          unitSystem: google.maps.UnitSystem.METRIC,
+          avoidHighways: false,
+          avoidTolls: false
+        }, function(response, status) {
+          if (status !== 'OK') {
+            alert('Error was: ' + status);
+          } else {
+            var originList = response.originAddresses;
+            var destinationList = response.destinationAddresses;
+            var outputDiv = document.getElementById('output');
+            outputDiv.innerHTML = '';
+            deleteMarkers(markersArray);
+
+            var showGeocodedAddressOnMap = function(asDestination) {
+              var icon = asDestination ? destinationIcon : originIcon;
+              return function(results, status) {
+                if (status === 'OK') {
+                  map.fitBounds(bounds.extend(results[0].geometry.location));
+                  markersArray.push(new google.maps.Marker({
+                    map: map,
+                    position: results[0].geometry.location,
+                    icon: icon
+                  }));
+                } else {
+                  alert('Geocode was not successful due to: ' + status);
+                }
+              };
+            };
+
+            for (var i = 0; i < originList.length; i++) {
+              var results = response.rows[i].elements;
+              geocoder.geocode({'address': originList[i]},
+                  showGeocodedAddressOnMap(false));
+              for (var j = 0; j < results.length; j++) {
+                geocoder.geocode({'address': destinationList[j]},
+                    showGeocodedAddressOnMap(true));
+                outputDiv.innerHTML += originList[i] + ' to ' + destinationList[j] +
+                    ': <strong>' + results[j].distance.text + '</strong> in ' +
+                    results[j].duration.text + '<br>';
+              }
+            }
+          }
+        });
+      }
+
+      function deleteMarkers(markersArray) {
+        for (var i = 0; i < markersArray.length; i++) {
+          markersArray[i].setMap(null);
+        }
+        markersArray = [];
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDEyYYwt54ggFakkRdVrxQCIWsl4IgpQfI&callback=initMap">
+    </script>
+  </body>
+</html>

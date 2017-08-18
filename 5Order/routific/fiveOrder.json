@@ -1,0 +1,83 @@
+{
+	"visits": {
+		"order_1": {
+			"location": {
+				"name": "038988",
+				"lat": 1.295309,
+				"lng": 103.859486
+			},
+			"start": "10:41",
+			"end": "11:01",
+			"duration": 10,
+			"load": 10
+		},
+		"order_2": {
+			"location": {
+				"name": "048468",
+				"lat": 1.282613,
+				"lng": 103.848669
+			},
+			"start": "8:50",
+			"end": "9:10",
+			"duration": 10,
+			"load": 7
+		},
+		"order_3": {
+			"location": {
+				"name": "058357",
+				"lat": 1.285713,
+				"lng": 103.843924
+			},
+			"start": "9:56",
+			"end": "10:16",
+			"duration": 10,
+			"load": 13
+		},
+		"order_4": {
+			"location": {
+				"name": "069542",
+				"lat": 1.278887,
+				"lng": 103.848023
+			},
+			"start": "10:29",
+			"end": "10:49",
+			"duration": 10,
+			"load": 19
+		},
+		"order_5": {
+			"location": {
+				"name": "085201",
+				"lat": 1.27799,
+				"lng": 103.84122
+			},
+			"start": "8:34",
+			"end": "8:54",
+			"duration": 10,
+			"load": 26
+		}
+	},
+
+	"options": {
+   "min_vehicles": true,
+   "shortest_distance": true
+	},
+
+	"fleet": {
+		"driver_1": {
+			"start_location": {
+				"id": "depot",
+				"name": "119615",
+				"lat": 1.291608,
+				"lng": 103.7763329
+			},
+			"end_location": {
+				"id": "depot",
+				"name": "119615",
+				"lat": 1.291608,
+				"lng": 103.7763329
+			},
+			"shift_start":"8:00",
+			"capacity": 150
+		}
+	}
+}
