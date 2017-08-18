@@ -922,8 +922,7 @@
       "lat": 1.291608,
       "lng": 103.7763329
     },
-
-    "capacity": 150
+    "capacity": 150,"shift_start":"8:00"
   },
   "driver_2": {
     "start_location": {
@@ -939,7 +938,7 @@
       "lng": 103.7763329
     },
 
-    "capacity": 150
+    "capacity": 150,"shift_start":"8:00"
   },
   "driver_3": {
     "start_location": {
@@ -955,7 +954,7 @@
       "lng": 103.7763329
     },
 
-    "capacity": 150
+    "capacity": 150,"shift_start":"8:00"
   },
   "driver_4": {
     "start_location": {
@@ -971,7 +970,7 @@
       "lng": 103.7763329
     },
 
-    "capacity": 150
+    "capacity": 150,"shift_start":"8:00"
   },
   "driver_5": {
     "start_location": {
@@ -986,7 +985,7 @@
       "lat": 1.291608,
       "lng": 103.7763329
     },
-    "capacity": 150
+    "capacity": 150,"shift_start":"8:00"
   },
   "driver_6": {
     "start_location": {
@@ -1002,7 +1001,7 @@
       "lng": 103.7763329
     },
 
-    "capacity": 150
+    "capacity": 150,"shift_start":"8:00"
   },
   "driver_7": {
     "start_location": {
@@ -1018,7 +1017,7 @@
       "lng": 103.7763329
     },
 
-    "capacity": 150
+    "capacity": 150,"shift_start":"8:00"
   },
   "driver_8": {
     "start_location": {
@@ -1034,7 +1033,7 @@
       "lng": 103.7763329
     },
 
-    "capacity": 150
+    "capacity": 150,"shift_start":"8:00"
   },
   "driver_9": {
     "start_location": {
@@ -1050,7 +1049,7 @@
       "lng": 103.7763329
     },
 
-    "capacity": 150
+    "capacity": 150,"shift_start":"8:00"
   },
   "driver_10": {
     "start_location": {
@@ -1066,7 +1065,7 @@
       "lng": 103.7763329
     },
 
-    "capacity": 150
+    "capacity": 150,"shift_start":"8:00"
   },
   "driver_11": {
     "start_location": {
@@ -1082,7 +1081,7 @@
       "lng": 103.7763329
     },
 
-    "capacity": 150
+    "capacity": 150,"shift_start":"8:00"
   },
 	"driver_12": {
     "start_location": {
@@ -1098,7 +1097,7 @@
       "lng": 103.7763329
     },
 
-    "capacity": 150
+    "capacity": 150,"shift_start":"8:00"
   },
 	"driver_13": {
     "start_location": {
@@ -1114,7 +1113,7 @@
       "lng": 103.7763329
     },
 
-    "capacity": 150
+    "capacity": 150,"shift_start":"8:00"
   },
 	"driver_14": {
     "start_location": {
@@ -1129,7 +1128,7 @@
       "lat": 1.291608,
       "lng": 103.7763329
     },
-    "capacity": 150
+    "capacity": 150,"shift_start":"8:00"
   },
 	"driver_15": {
     "start_location": {
@@ -1144,7 +1143,7 @@
       "lat": 1.291608,
       "lng": 103.7763329
     },
-    "capacity": 150
+    "capacity": 150,"shift_start":"8:00"
   }
 	}
 }

@@ -1,7 +1,7 @@
 var Routific = require("routific");
 
 // Load the demo data. https://routific.com/demo.json
-var data = require('./100OrdersShift.json');
+var data = require('./100Orders_WithoutTW.json');
 var demoToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI1NDFiNzU2MWZkMmJlMzA4MDAyY2VlYmIiLCJpYXQiOjE0MTEwODU2NjV9.5jb_61ykdHA2RyhfVWFMowb2oSB9gWAY4mPKHk1iCiI";
 
 var client = new Routific.Client({token: demoToken});
